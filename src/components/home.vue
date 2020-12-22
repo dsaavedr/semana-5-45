@@ -72,12 +72,12 @@
             <h2 class="row justify-content-center mb-5">Nuestro Equipo</h2>
             <div class="row justify-content-center mb-5">
                 <div v-for="miembro in team" :key="miembro.codigo" class="col mt-5">
-                        <div class="card text-white bg-dark" width="300" height="600">
+                        <div class="card text-white bg-dark" >
                             <div class="d-flex justify-content-center p-2">
                                 <img :src="miembro.image" width="200" height="200" border="0">
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title"> {{miembro.rol}}</h5>
+                                <h5 class="card-title text-center"> {{miembro.rol}}</h5>
                                 <h5 class="card-title"> {{miembro.nombre}}</h5>
                                 <p class="card-text">{{miembro.descripcion}}
                                 </p>
@@ -178,7 +178,7 @@ export default {
             team: [  {
                     codigo: 1,
                     nombre: "Sebastián Cely",
-                    descripcion: "Ingeniero Industrial. Hobbies: Videojuegos, escuchar música, programar, hacer deporte.                                                    ",
+                    descripcion: "Ingeniero Industrial. Hobbies: Videojuegos, escuchar música, programar, hacer deporte.",
                     rol: "Coach",
                     image: "https://drive.google.com/uc?export=download&id=1dTciNnYxilnMpnqQJMdaIKx_VUXjyh7C"
                 },
@@ -192,7 +192,7 @@ export default {
                 {
                     codigo: 3,
                     nombre: "Camilo González",
-                    descripcion: "Ingeniero de sistemas. Hobbies: Tecnología, fútbol y videojuegos.                                                                           ",
+                    descripcion: "Ingeniero de sistemas. Hobbies: Tecnología, fútbol y videojuegos.",
                     rol: "Coach",
                     image: "https://i.imgur.com/aesAWOn.jpeg"
                 },
@@ -205,10 +205,10 @@ export default {
                 }, 
                 {
                     codigo: 5,
-                    nombre: 'Patricia',
-                    descripcion: "Coach Agil certificada con amplia experiencia gestionando proyectos de marketing digital en Agencias, Startups y para empresas en diferentes industrias",
+                    nombre: 'Patricia Arango',
+                    descripcion: "administradora inmobiliaria",
                     rol: 'Coach',
-                    image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtDpvc7htkLxkMA4FO5RoYgUs5Z2qwt79Izw&usqp=CAU"
+                    image:"https://i.imgur.com/SaeoRxr.jpg"
                     }]
         };
     },

@@ -3,7 +3,7 @@
   <div v-if="estado">
      <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark ">
         <a class="navbar-brand " href="# ">
-            <img src="https://www.flaticon.com/svg/static/icons/svg/1934/1934014.svg" width="30 " height="30
+            <img src="https://www.flaticon.com/svg/static/icons/svg/3534/3534097.svg" width="30 " height="30
     " class="d-inline-block align-top " alt=" " loading="lazy "> SPRINT 5
         </a>
         <div class="collapse navbar-collapse justify-content-end " id="navbarNav ">
