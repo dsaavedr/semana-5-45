@@ -1,48 +1,109 @@
 <template>
 <div>
-    <div class="container-fluid">
-        <div class="row mt-md-5 mt-sm-5 mt-xs-5">
-            <div v-for="(art,indice) of datos" :key="art.id" class="col-lg-6 col-xs-12 border">
-                <div v-if="indice<=3">
-                <div  class="d-flex justify-content-center align-items-center">
-
-                    <div class="p-3">
-                        <svg width="12em" height="12em" viewBox="0 0 16 16" class="bi bi-alarm-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M6 .5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H9v1.07a7.001 7.001 0 0 1 3.274 12.474l.601.602a.5.5 0 0 1-.707.708l-.746-.746A6.97 6.97 0 0 1 8 16a6.97 6.97 0 0 1-3.422-.892l-.746.746a.5.5 0 0 1-.707-.708l.602-.602A7.001 7.001 0 0 1 7 2.07V1h-.5A.5.5 0 0 1 6 .5zM.86 5.387A2.5 2.5 0 1 1 4.387 1.86 8.035 8.035 0 0 0 .86 5.387zM11.613 1.86a2.5 2.5 0 1 1 3.527 3.527 8.035 8.035 0 0 0-3.527-3.527zM8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z"
-                            />
-                        </svg>
-                    </div>
-
-                    <div class="p-2">
-                        <p>
-                            {{art.nombre}}
-                        </p>
-                    </div>
-
-                </div>
-                <div class="d-flex container-fluid justify-content-end pb-2 mt-n2">
-                    <button type="button" class="btn btn-outline-info">Info</button>
-                </div>
+        <div >
+            <div >
+                <v-carousel :show-arrows="false">
+                    <v-carousel-item 
+                    v-for="(item,i) in items"
+                    :key="i"
+                    :src="item.src"
+                    reverse-transition="fade-transition"
+                    transition="fade-transition"
+                    ></v-carousel-item>
+                </v-carousel>
+            </div>
+        </div>
+        <div>
+            <p></p>
+        </div>
+        <div class="container-fluid">
+            <h2 class="row justify-content-center mb-5">Nuestros Servicios</h2>
+            <div class="row justify-content-center mb-5">
+                <div v-for="item in categoria" :key="item.codigo" class="col mt-5">
+                        <v-card
+                            class="mx-auto"
+                            max-width="400"
+                        >
+                            <v-img
+                            class="white--text align-end"
+                            height="400px"
+                            :src="item.image"
+                            >
+                            
+                            </v-img>
+                            <v-card-title>{{item.nombre}}</v-card-title>
+                            <v-card-text class="text--primary">
+                            <div>{{item.descripcion}}</div>
+                            </v-card-text>
+                    
+                        </v-card>
+                    
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row justify-content-center mb-5">
-            <div v-for="miembro in team" :key="miembro.codigo" class="col mt-5">
-                     <div class="card text-white bg-dark">
-                        <div class="d-flex justify-content-center p-2">
-                            <img :src="miembro.image">
+        <div></div>
+        <div class="container-fluid">
+            <h2 class="row justify-content-center mb-5">Acerca de Nosotros</h2>
+            <div class="row mb-5 justify-content-center">
+                <div class="col justify-content-center" >
+                        <div class="d-flex justify-content-center align-items-center">
+                                <div class="p-3">
+                                    <img src="https://d2qc4bb64nav1a.cloudfront.net/cdn/13/images/curso-online-coaching-y-mentoring_amp_primaria_1_1560502986.jpg" width="900" height="450" border="0" >
+                                </div>
+                                <div class="p-3">
+                                <p>Desde nuestro nacimiento hace 1 década, nos hemos comprometido con la excelencia y la vanguardia organizacional, acompañando y transformando
+                                a las mejores organizaciones en todo el mundo, teniendo presencia en Colombia y Sudamérica.<p>
+
+                                <p> Nuestro equipo esta conformado por consultores de primer nivel, que integran su vasta experiencia en el campo de las organizaciones y su solida
+                                y constante preparación para dar como resultado la mas exitosa combinación.</p> 
+
+                                <p>Hemos generado ideas que cambian paradigmas y presenciado equipo que imaginan y crean, limites mentales que se desvanecen, canales de comunicación
+                                que se fortalecen y liderazgos que se forjan con la voluntad de cada momento.</p> 
+
+                                <p>Estos somos y esta es nuestra visión para tu organización.</p> 
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Team member: {{miembro.codigo}} {{miembro.rol}}</h5>
-                            <h5 class="card-title"> {{miembro.nombre}}</h5>
-                            <p class="card-text">{{miembro.descripcion}}
-                            </p>
+                
+            </div>
+        </div>
+        <div></div>
+        <div class="container-fluid">
+            <h2 class="row justify-content-center mb-5">Nuestro Equipo</h2>
+            <div class="row justify-content-center mb-5">
+                <div v-for="miembro in team" :key="miembro.codigo" class="col mt-5">
+                        <div class="card text-white bg-dark" width="300" height="600">
+                            <div class="d-flex justify-content-center p-2">
+                                <img :src="miembro.image" width="200" height="200" border="0">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"> {{miembro.rol}}</h5>
+                                <h5 class="card-title"> {{miembro.nombre}}</h5>
+                                <p class="card-text">{{miembro.descripcion}}
+                                </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div></div>
+        <div class="container-fluid">
+            <h2 class="row justify-content-center mb-5">Casos de exito</h2>
+                <div clas="d-flex container-fluid flex-wrap">
+                    <div class="row mt-md-5 mt-sm-5 mt-xs-5" >
+                        <div class="col-lg-4 col-xs-8" v-for="url in casoexito" :key="url.codigo">
+                            <div clas="container-fluid" >
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <div class="p-3">
+                                        <img :src="url.src" width="400" height="400" border="0" >
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+            </div>
     </div>
     </div>
 </template>
@@ -54,31 +115,101 @@ export default {
      data() {
         return {
             datos: null,
-            team: [{
+            items: [
+                {
+                    src: 'https://i.imgur.com/IbmMxsi.jpg',
+                },
+                {
+                    src: 'https://i.imgur.com/yqzghX4.jpg',
+                },
+                {
+                    src: 'https://i.imgur.com/Aw8TfGM.jpg',
+                },
+                {
+                    src: 'https://i.imgur.com/xFOKDos.jpg',
+                },
+             ],
+
+             casoexito: [
+                {
+                    codigo: 1,
+                    src: 'https://noravillegas.com/templates/yootheme/cache/06_CoachingNoraVillegas-9508c163.webp',
+                },
+                {
+                    codigo: 2,
+                    src: 'https://noravillegas.com/templates/yootheme/cache/15_CoachingNoraVillegas-708dfcb3.webp',
+                },
+                {
+                    codigo: 3,
+                    src: 'https://noravillegas.com/templates/yootheme/cache/05_CoachingNoraVillegas-7b0c2032.webp',
+                },
+                {
+                    codigo: 4,
+                    src: 'https://noravillegas.com/templates/yootheme/cache/SieteChakras_noel_640_NOraVillegas-e82aafe5.webp',
+                },
+                {
+                    codigo: 5,
+                    src: 'https://noravillegas.com/templates/yootheme/cache/07_CoachingNoraVillegas-cf0b61ac.webp',
+                },
+                {
+                    codigo: 64,
+                    src: 'https://noravillegas.com/templates/yootheme/cache/01_CoachingNoraVillegas-c873a54f.webp',
+                }
+              
+             ],
+
+              categoria: [{
                 codigo: 1,
-                nombre: 'Lucas Mera',
-                descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum ac elit et accumsan.',
-                rol: 'Desarrollador backend',
-                image:"data:image/png;base64,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"
+                nombre: 'Coaching Online',
+                descripcion: 'Sesiones Online de Coaching.',
+                image: 'https://www.guidocattaneo.com/wp-content/uploads/2019/02/coaching-online.jpeg'
             }, {
                 codigo: 2,
-                Nombre: 'Cristian Sanz',
-                descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum ac elit et accumsan.',
-                rol: 'Arquictecto de software',
-                image:"data:image/png;base64,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"
+                nombre: 'Coaching Presencial',
+                descripcion: 'Sesiones Presenciales de Coaching.',
+                image:'https://www.emprendiendohistorias.com/wp-content/uploads/2019/05/cursos-de-coaching-online.jpg'
             }, {
                 codigo: 3,
-                nombre: 'Samara Cerezo',
-                descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum ac elit et accumsan.',
-                rol: 'Tester',
-                image:"data:image/png;base64,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"
-            }, {
-                codigo: 4,
-                nombre: 'Iris Mesa',
-                descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris condimentum ac elit et accumsan.',
-                rol: 'Analista',
-                image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAAD/CAMAAACdMFkKAAAAkFBMVEUyO1r///8vOFgoMlQtNlcdKU4qNFUZJkwjLlEmMFMhLFAbKE0YJUwVI0vz8/UvOVg6Q2Gytb+oq7bU1dv4+frHydFvdYlWXXZMVG6nqrU0Pl28v8d2e45DTGjp6u2Lj56ZnKmVmaddZHzZ2uALHUiCh5dla4HCxMy3usPi5OjX2N56gJKIi5o/R2RIUGtRWHExfViWAAAKIElEQVR4nO2di3byrBKGEU1MoolG47H1XK22n+39391OjMeawwwMsP1X3guIPgteGGAYWE2VDoNw8b5b/86609l4vXtfhIODsh9jKj56CIfdj7bl1e0G77BYHd6wbcdqf0yH4UbFL5JjzMN313fs079/Vsd22t4wnFP/Ki1GtB/5np1NcJPt+b9hRPrDlBiDd99rlDGk4p4/HBD+NB3G/tiuwxjObdLshmQ/ToURTlscA3FqEov1iH6eBiNsWDmeLlbHs2lAKDC+xviWuLXIT5/gL8hjBNs20Nc5IO3vwDzG3nZlIBLVXWmvS2JE323h/nTXIM13yWlEDuPw48hDJHKPcjGKFEYIne3KxS2pIUsGY+ELjbI5am/NYHxbhBCxrKG4QYQxop1HS8GYsxYeeUUxgl/pcfZZ9bFoBC+IEfygwkAwx0yQQwwjWiuhiMPeX7F+JYYxJJounuXuhHwuhLEld/dN3rcujFVLHUU87i70YHwqbIsTx14HxrxLEAwWqcPw+1l4jJ2iQeome4S2ORpjSRyCZMlD2wOL0VdsjFTWp1qMaEQWmheJj5GzIBJjoqFLJfKWKjHmTPEodVHHxo1WOIxv5aPURfZQHUZfU5dK1EK5HIUxLN0sp1NjrQpDz2B7kYXZccdgvGtsjNgdOzUYG2WLjGxZiM1dBIa+YSpVHTFYwTHmXNOccZULnzvgGD2tBk/kTRRg7LREU/dqwAN2MMZBe2PEJgfvT4MxlprHqUQueN0BxYh+dRs8Fv+B9ioohok+FQdW0LEKihEawfCghx5QjK3WQOQi+50WI/oxYI3YHEfgYhaIcWiaoGCsCRxygRhmrAGfyIEYC81h4UX1f6QYepcaN0GX5DCMaGTE4ckECPM4DCOYGsJgNuwUDYZxaBuiYG3YUAXDGGjc2XmU90aIsTc03jLmwMIRGEbPQJR+xoBNHDCMiTEMF7YnDcNYKkhJgKm+IsQwNYmDp3EYxj9jGDYsPen/vjUoMVbmvAHbVQBa3NxItSLEMDfgOpQDrqlVE/Es/mYupoJlGsMw+oaW4oy1YGdOMIy5MW80KdcbwczU6q9LufozcCpwxgCeDQAxtqZ2RoApe0AMU/MfcPaDYgyUphfmy4KtYaEYc0PecIDpxdAddTMeB5/+QTHMxLjA+BaOMTAyj4PTeKAYga6EsAcB9wwRJ7E6k5CuFODsFzDG3kCQCwxvMRhBl/IiE0icg29zwJMt9McjdegBJgajr30iR6QbwjGiseaxCnwMi8KoTTQvyDEpxQiM4Ki1OfgUcV0LkzK51Noczgrx1zAYc51jLmK0RWLUVhqbwwWeiAtgKL8PdBPvoHLtcan2obaIxIKnS+IxamtNAWLjF3e9CYnR17R68pAlYbB3mxZaXO5ir2JiMYKZhkU572IvKqMvzOnoVtguJXJ9Uf0tLQt5P0sIozZU3B51zMUNcYzgqNQeeGOIYdT6Kq9AdOoipYWErr0PXGUcHWDmEQWGwsQkweIvgpUtJooW5i38ICWDUVsq2QxtrgT/jnDVl4lF7w/RtpCpwbP3iDk68E1CQozaoE7KwR3sXXcajNpXl3AjsT6VKUUnVWYrGJINWNZOqg6dZO22iXgpwHvxprC5STBq/SnBUbPLZOt/ShcEDP7JlTWM193trXRhQ4Iqk5tfqZ5ljQnKTJLU/Axd4Z7lAPO+SkRTujRYeSKTYcfxVvKFMhNRFZKNlnUsSMdxlzQQlGV9o94UU9fXbrMJXaFl0lrR/a1ngbYVbcvaUtSPvYq6cvfnsN10Ckdg7jT9ndASr0AK6qj3JyO/5dQbT1bpNOpe62O0JG2HVAowEg3Cxbrx0WxZnue4ruN5Vqv5Ya8X4YC28PhFijBOijaDz33YWy574f5z8KUGIJVKDI2qMM56k57CAvlxSxJjvmx8CGy5Pmr3YS8lH0+QwhjsfIdL7GekmjQZd/2d1JJDAqPHmumU7Uv9g356UdVuctyp5YPE96ls73LYz6cS9giuh9Qdry4MIojRa9zHsyInEhcN78JJ7tmCIEIYjxBMZrtv8riJKgoigDE4Pu97+oJxUv/pBje3jgJWQ2PMh37G8kjQHkFW9gb3h+jhF4uxzFlQiNljmL3OqqMPMXEYg2Pu+YyIPSa5pwteF9ezUBiLrP50Ed4efT//a9xHFZNFYBzGhUdlaHtkGuMm5wfxCASidptVsjuItUeOMa5qtOhrtwW78lMy3H5yvjFuH9wRp9r3GWTvBmOPImNcZTPgF4GVLWAHfQh7lBjj+kWL8DLpClotBW6PMmNc5a+IMCLEmRLUHhN4GZkW5HWRcoz5GJOxA7PHF8QYF7k/5UYvxTh0UVmSIHsEXdTJjt0tTWYtwzhMkWdJEHuAjXFWY1o2E5ZgbBj6RKxZOmn10PWVOP+Sweg/b8SWq8weKGNcOOzijxZi9IXyEErsAZwx/n7ULQx5izC+BLO/iu2BNcaFwylqjwKMg3Cls6KYrieawcSLnuXIxwhm4vno+fYQMcZZjVl+Z83FiEYSeS259ohkrk7Y+fn3uRhybxrl2UPQGGe5uabLw9hK5j5n20PYGGd5efWRcjBC8S58VpY9NvJfzclpyMb4ks9Dz7CHlDHOyil1n4lBcsPv2R5yxkiVUz8lE4Mmmf5vcCVrjFTZJfuzMACLfZAe7SFvjFSZK7MMjOftYUHx6d04T2GMVO2M6OoZI6IrG3RvDwpjpOLH51nwGWNBWKfmZg8aY6RynvdFnzDIutRJF3tQGePxqwUYtJXGz/agM0b61dnfbvUXg/r2bmoPOmOk8lbFGBvyMsSJPfCL7zK1vwoxFLy85m8OpMY4qTEqwnhTcLmE/6ioJdF+K8BQUi2ho+Kj/JiP0TNWhRGvxwvl9xiRyK6UKXE7yMFYGSvCKKKHyhd3GHNDZeZEdV+A8g5jYax2r5ju3xG6YQTGisWKygsyMHSX2JHX3RsjNwymvYyWrDh/xjBR1ExWt2PaK4aZp4DkxGd/MQbGXtiQ0XVZfsEwUe9PXtena84YwUs2RrwKCB4wzFUYl9Pl0bMzhp6HqunFf+8xFKzPNMk/3GGYe0NAVufXUlIMfVXAqNWZ3jBoN8P0yt9cMcw96CCv9Ckh9srjVKJ0qyfBiF64T8W9KjpjfL5gcHuT9XnGMPcOEIVOTyIlGNOXWzDdi7MU43Wn8FTJRB5jvL1oWHhRUtGKmSpYT6fkVYgYw9Q7l1TioxOGsedzqNRMMF7d4SePM4NvMlHJeosxXt3hJ4+z2vqF48JUjXWMof/tAGrFSydWe3mHxx6vseC/gBGwzctPG8lj6szcu8J0sgZs/8Lr8Iu8kJl7yZZO9SUz9egapexvZuo5eko13tnw5SfxGGPIdi++2kjE1+zVF02J+IiNXz6kijHGbGb6P1Boxrqm/wKF/hMQlSpVqlSpUqVKlSpVqlSpUqVKlSpVqlSpUqVKlUzpfy7xopbBMsSkAAAAAElFTkSuQmCC"
-            }]
+                nombre: 'Gamificaciòn',
+                descripcion: 'Sesiones interactivas para cambiar la rutina.',
+                image:'https://i.imgur.com/N7NEaBq.jpg'
+            }],
+                  
+            team: [  {
+                    codigo: 1,
+                    nombre: "Sebastián Cely",
+                    descripcion: "Ingeniero Industrial. Hobbies: Videojuegos, escuchar música, programar, hacer deporte.                                                    ",
+                    rol: "Coach",
+                    image: "https://drive.google.com/uc?export=download&id=1dTciNnYxilnMpnqQJMdaIKx_VUXjyh7C"
+                },
+                {
+                    codigo: 2,
+                    nombre: "Nicolás Cubillos",
+                    descripcion: "Ingeniero Electrónico motivado por el aprendizaje de desarrollo de software, enfocado a solucionar y crear oportunidades para las empresas.",
+                    rol: "Coach",
+                    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80"
+                },
+                {
+                    codigo: 3,
+                    nombre: "Camilo González",
+                    descripcion: "Ingeniero de sistemas. Hobbies: Tecnología, fútbol y videojuegos.                                                                           ",
+                    rol: "Coach",
+                    image: "https://i.imgur.com/aesAWOn.jpeg"
+                },
+                {
+                    codigo: 4,
+                    nombre: "Daniel Saavedra",
+                    descripcion: "Autodidacta primero, estudiante de economía después. Me apasiona la eficiencia y el uso de la tecnología para el impacto social y la solución de problemas.",
+                    rol: "Coach",
+                    image: "https://images.unsplash.com/photo-1588167056840-13caf6e4562a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1001&q=80"
+                }, 
+                {
+                    codigo: 5,
+                    nombre: 'Patricia',
+                    descripcion: "Coach Agil certificada con amplia experiencia gestionando proyectos de marketing digital en Agencias, Startups y para empresas en diferentes industrias",
+                    rol: 'Coach',
+                    image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtDpvc7htkLxkMA4FO5RoYgUs5Z2qwt79Izw&usqp=CAU"
+                    }]
         };
     },
     mounted() {
