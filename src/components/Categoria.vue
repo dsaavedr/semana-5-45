@@ -35,6 +35,7 @@
                                     </div>
                                 </v-flex>
                             </v-layout>
+                            <router-view></router-view>
                         </v-container>
                         </v-card-text>            
                         <v-card-actions>

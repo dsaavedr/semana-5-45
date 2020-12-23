@@ -11,53 +11,59 @@
                 <li class="nav-item active ">
                     <a class="nav-link " v-on:click="ingresar" href="# ">Sistema <span class="sr-only ">(current)</span></a>
                 </li>
+                <li class="nav-item active ">
+                    <a class="nav-link " v-on:click="home" href="/categoria">Categorias</a>
+                </li>
+                <li class="nav-item active ">
+                    <a class="nav-link " v-on:click="home" href="/aticulo">Articulos</a>
+                </li>
             </ul>
         </div>
     </nav>
-    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+
+  <div id="services">
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="1" class=""></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="2" class=""></li>
+          <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
+          <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+          <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
         </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: First slide"><title>Placeholder</title>
-                <rect
-                    width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#555" dy=".3em">First slide</text></svg>
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </div>
+        <div class="carousel-inner slider-size">
+          <div class="carousel-item active">
+              
+            <img src="https://www.constructionexec.com/assets/site_18/images/article/021220115350.jpg?width=1280" width="86%" height="700" class="d-block sliders-images" alt="Calidad del Grano" >
+            <div class="carousel-caption d-none d-md-block">
+              <h2 class="slider-text-title">Capacitación Presencial</h2>
+              <p class="paragraph-sliders-text slider-text-des">Encontramos el valor de las personas fundamental para la productividad empresarial.</p>
             </div>
-            <div class="carousel-item">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Second slide"><title>Placeholder</title>
-                <rect
-                    width="100%" height="100%" fill="#666"></rect><text x="50%" y="50%" fill="#444" dy=".3em">Second slide</text></svg>
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://cefne.com/wp-content/uploads/2018/08/foto-cefne2.jpg" width="86%" height="700" class="d-block sliders-images" alt="Consumir Producto">
+            <div class="carousel-caption d-none d-md-block">
+              <h2 class="slider-text-title">Capacitación Virtual</h2>
+              <p class="paragraph-sliders-text slider-text-des">Todos los clientes son únicos y especiales, por eso ofrecemos personalizar tu experiencia.</p>
             </div>
-            <div class="carousel-item">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Third slide"><title>Placeholder</title>
-                <rect
-                    width="100%" height="100%" fill="#555"></rect><text x="50%" y="50%" fill="#333" dy=".3em">Third slide</text></svg>
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://lieve.co/my_media/2018/09/gamificacion_lieve.png" width="86%" height="700" class="d-block sliders-images" alt="Franquicia de Tiendas">
+            <div class="carousel-caption d-none d-md-block">
+              <h2 class="slider-text-title">Cursos Gamificados</h2>
+              <p class="paragraph-sliders-text slider-text-des">Ofrecemos los mejores cursos de gamificación para el desarrollo de habilidades blandas.</p>
             </div>
+          </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
         </a>
-    </div>
+      </div>
+      </div>
+
+
     <div>
       <home/>
     </div>
@@ -261,3 +267,45 @@ export default {
   }
 };
 </script>
+
+<style>
+/* Estilo para los servicios */
+.sliders-images {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border:none;
+    width: 90%;
+}
+
+.slider-size{
+    width: 100%;
+    height: 700;
+}
+
+.paragraph-sliders-text{
+    font-size: 20px;
+    font-style: italic;
+}
+
+.slider-text-title{
+  font-family:fantasy;
+  color: black;
+  -webkit-text-fill-color: orangered; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: white;
+  font-size: 65px;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+.slider-text-des{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  color:darkblue;
+  -webkit-text-stroke-width: 0.8px;
+  -webkit-text-stroke-color: white;
+  font-size: 40px;
+  font-weight:bold;
+}
+
+</style>

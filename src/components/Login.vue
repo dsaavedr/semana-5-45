@@ -1,24 +1,21 @@
 <template>
     <v-layout align-center justify-center>
         <v-flex xs12 sm8 md6 lg5 x14>
-            <v-card>
-                <v-toolbar dark color="silver darken-3">
-                    <v-toolbar-title>
-                        Acceso al Sistema
+            <v-card >
+                <v-toolbar dark color="blue-grey darken-3">
+                    <v-toolbar-title >
+                        Inicio de Sesión
                     </v-toolbar-title>
                 </v-toolbar>
                 <v-card-text>
-                    <v-text-field v-model="email" autofocus color="accent" label="Email" required>
+                    <v-text-field v-model="email" autofocus color="cyan darken-2" label="Email" required>
                     </v-text-field>
-                    <v-text-field v-model="password" type="password" color="accent" label="Password" required>
+                    <v-text-field v-model="password" type="password" color="cyan darken-2" label="Password" required>
                     </v-text-field>
-                    <v-flex class="red--text" v-if="errorM">
-                        {{errorM}}
-                    </v-flex>
                 </v-card-text>
-                <v-card-actions class="px-3 pb-3">
+                <v-card-actions class="px-3 pb-3 ">
                     <v-flex text-xs-right>
-                        <v-btn @click="ingresar()" color="primary">Ingresar</v-btn>
+                        <v-btn @click="ingresar()" dark color="blue-grey darken-1" elevation="3" >Ingresar</v-btn>
                     </v-flex>
                 </v-card-actions>
             </v-card>
@@ -29,12 +26,14 @@
 </template>
 <script>
 import axios from 'axios';
+import swal from 'sweetalert';
+
 export default {
     data(){
         return{
             email:'',
             password:'',
-            errorM:null
+            
         }
     },
 
@@ -46,22 +45,21 @@ export default {
                 return respuesta.data;
             })
             .then(data =>{
+                swal("¡Bienvenido!", "Login exitoso", "success");
                 this.$store.dispatch("guardarToken",data.tokenReturn);
                 this.$router.push({name: 'home'});
             })
             .catch(error =>{
                 //console.log(eror);
-                this.errorM=null;
                 console.log(error.response.status);
                 if (error.response.status==401){
-                    console.log('hola');
-                    this.errorM='credenciales son incorrectas.';
+                    swal("Error", "Credenciales incorrectas", "error")
                 } 
                 else if (error.response.status==404){
-                    this.errorM='el usuario no existe';
+                    swal("Error", "El usuario no existe", "error")
                 }
                 else{
-                    this.errorM='Ocurrió un error con el servidor.';
+                    swal("Error", "Ocurrió un error en el servidor", "error");
                 }
             });
         }
