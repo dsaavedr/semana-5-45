@@ -17,7 +17,7 @@
             <p></p>
         </div>
         <div class="container-fluid">
-            <h2 class="row justify-content-center mb-5">Nuestros Servicios</h2>
+            <h2 class="row justify-content-center mb-5 font-weight-black">Nuestros Servicios</h2>
             <div class="row justify-content-center mb-5">
                 <div v-for="item in categoria" :key="item.codigo" class="col mt-5">
                         <v-card
@@ -43,7 +43,7 @@
         </div>
         <div></div>
         <div class="container-fluid">
-            <h2 class="row justify-content-center mb-5">Acerca de Nosotros</h2>
+            <h2 class="row justify-content-center mb-5 font-weight-black">Acerca de Nosotros</h2>
             <div class="row mb-5 justify-content-center">
                 <div class="col justify-content-center" >
                         <div class="d-flex justify-content-center align-items-center">
@@ -69,12 +69,12 @@
         </div>
         <div></div>
         <div class="container-fluid">
-            <h2 class="row justify-content-center mb-5">Nuestro Equipo</h2>
+            <h2 class="row justify-content-center mb-5 font-weight-black">Nuestro Equipo</h2>
             <div class="row justify-content-center mb-5">
                 <div v-for="miembro in team" :key="miembro.codigo" class="col mt-5">
                         <div class="card text-white bg-dark" >
                             <div class="d-flex justify-content-center p-2">
-                                <img :src="miembro.image" width="200" height="200" border="0">
+                                <img :src="miembro.image" width="200" height="200" border="0" class="pa-7 secondary rounded-circle d-inline-block">
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title text-center"> {{miembro.rol}}</h5>
@@ -87,8 +87,8 @@
             </div>
         </div>
         <div></div>
-        <div class="container-fluid">
-            <h2 class="row justify-content-center mb-5">Casos de exito</h2>
+          <div class="container-fluid">
+            <h2 class="row justify-content-center mb-5 font-weight-black">Casos de exito</h2>
                 <div clas="d-flex container-fluid flex-wrap">
                     <div class="row mt-md-5 mt-sm-5 mt-xs-5" >
                         <div class="col-lg-4 col-xs-8" v-for="url in casoexito" :key="url.codigo">
@@ -113,7 +113,7 @@
 import axios from 'axios';
 export default {
      data() {
-        return {
+         return {
             datos: null,
             items: [
                 {
@@ -152,7 +152,7 @@ export default {
                     src: 'https://noravillegas.com/templates/yootheme/cache/07_CoachingNoraVillegas-cf0b61ac.webp',
                 },
                 {
-                    codigo: 64,
+                    codigo: 6,
                     src: 'https://noravillegas.com/templates/yootheme/cache/01_CoachingNoraVillegas-c873a54f.webp',
                 }
               
@@ -192,7 +192,7 @@ export default {
                 {
                     codigo: 3,
                     nombre: "Camilo González",
-                    descripcion: "Ingeniero de sistemas. Hobbies: Tecnología, fútbol y videojuegos.",
+                    descripcion: "Ingeniero de sistemas.                       Hobbies: Tecnología, fútbol y videojuegos.",
                     rol: "Coach",
                     image: "https://i.imgur.com/aesAWOn.jpeg"
                 },
@@ -217,6 +217,5 @@ export default {
     .then(response => (this.datos = response.data));
 
     },
-    
 }
 </script>
