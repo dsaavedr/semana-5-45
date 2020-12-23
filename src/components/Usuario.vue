@@ -33,23 +33,6 @@
                                     </v-select>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <v-select v-model="tipo_documento"
-                                    :items="documentos" label="Tipo Documento">
-                                    </v-select>
-                                </v-flex>
-                                <v-flex xs12 sm6 md6>
-                                    <v-text-field v-model="num_documento" label="Número Documento">
-                                    </v-text-field>
-                                </v-flex>
-                                <v-flex xs12 sm6 md6>
-                                    <v-text-field v-model="direccion" label="Dirección">
-                                    </v-text-field>
-                                </v-flex>
-                                <v-flex xs12 sm6 md6>
-                                    <v-text-field v-model="telefono" label="Teléfono">
-                                    </v-text-field>
-                                </v-flex>
-                                <v-flex xs12 sm6 md6>
                                     <v-text-field v-model="email" label="Email">
                                     </v-text-field>
                                 </v-flex>
@@ -81,18 +64,17 @@
                             Desactivar Item
                         </v-card-title>
                         <v-card-text>
-                            Estás a punto de <span v-if="adAccion==1">activar </span>
-                            <span v-if="adAccion==2">desactivar </span> el item {{adNombre}}
+                            Estás a punto de <span>{{adAccion == 1 ? "activar" : "desactivar"}}</span> el item {{adNombre}}
                         </v-card-text>
                         <v-card-actions>
                             <v-spacer></v-spacer>
                             <v-btn @click="activarDesactivarCerrar()" color="green darken-1" >
                                 Cancelar
                             </v-btn>
-                            <v-btn v-if="adAccion==1" @click="activar()" color="orange darken-4" >
+                            <v-btn v-if="adAccion==1" @click="activar()" color="red darken-1" >
                                 Activar
                             </v-btn>
-                            <v-btn v-if="adAccion==2" @click="desactivar()" color="orange darken-4" >
+                            <v-btn v-if="adAccion==2" @click="desactivar()" color="red darken-1" >
                                 Desactivar
                             </v-btn>
                         </v-card-actions>
@@ -103,6 +85,7 @@
                 :headers="headers"
                 :items="usuarios"
                 :search="search"
+                :loading="loading"
                 class="elevation-1"
             >
             <template v-slot:[`item.opciones`]="{ item }">
@@ -154,10 +137,6 @@
                     { text: 'Opciones', value: 'opciones', sortable: false },
                     { text: 'Nombre', value: 'nombre', sortable: true },
                     { text: 'Rol', value: 'rol', sortable: true },
-                    { text: 'Tipo Documento', value: 'tipo_documento', sortable: true },
-                    { text: 'Número Documento', value: 'num_documento', sortable: false  },
-                    { text: 'Dirección', value: 'direccion', sortable: false  },
-                    { text: 'Teléfono', value: 'telefono', sortable: false  },
                     { text: 'Email', value: 'email', sortable: false  },
                     { text: 'Estado', value: 'estado', sortable: false  } 
                 ],
@@ -173,6 +152,7 @@
                 telefono: '',
                 email: '',
                 password:'',
+                loading: true,
                 valida:0,
                 validaMensaje:[],
                 adModal:0,
@@ -192,8 +172,8 @@
             }
         },
         created () {
+            this.loading = true;
             this.listar();
-             
         },
         methods: {
             listar(){
@@ -202,13 +182,14 @@
                 let configuracion= {headers : header};            
                 axios.get('usuario/list',configuracion).then(function (response){
                     me.usuarios=response.data;
+                    me.loading = false;
                 }).catch(function(error){
                     console.log(error);
                 });
             },
             limpiar(){
                 this.id='';
-               this.nombre='';
+                this.nombre='';
                 this.num_documento='';
                 this.direccion='';
                 this.telefono='';
@@ -226,15 +207,6 @@
                 }
                 if(this.nombre.length<1 || this.nombre.length>50){
                     this.validaMensaje.push('El nombre del usuario debe tener entre 1-50 caracteres.');
-                }
-                if(this.num_documento.length>20){
-                    this.validaMensaje.push('El documento no debe tener más de 20 caracteres.');
-                }
-                if(this.direccion.length>70){
-                    this.validaMensaje.push('La dirección no debe tener más de 70 caracteres.');
-                }
-                if(this.telefono.length>20){
-                    this.validaMensaje.push('El teléfono no debe tener más de 20 caracteres.');
                 }
                 if(this.email.length<1 || this.nombre.length>50){
                     this.validaMensaje.push('El email del usuario debe tener entre 1-50 caracteres.');
@@ -260,10 +232,6 @@
                         'id':this.id,
                         'rol':this.rol,
                         'nombre':this.nombre,
-                        'tipo_documento':this.tipo_documento,
-                        'num_documento':this.num_documento,
-                        'direccion':this.direccion,
-                        'telefono': this.telefono,
                         'email':this.email,
                         'password':this.password
                     },configuracion)
