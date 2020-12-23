@@ -69,17 +69,17 @@
         </div>
         <div></div>
         <div class="container-fluid">
-            <h2 class="row justify-content-center mb-5 font-weight-black">Nuestro Equipo</h2>
+            <h2 class="text-center mb-5 font-weight-black">Nuestro Equipo</h2>
             <div class="row justify-content-center mb-5">
-                <div v-for="miembro in team" :key="miembro.codigo" class="col mt-5">
+                <div v-for="miembro in team" :key="miembro.codigo" class="col mt-5 align-items-stretch d-flex">
                         <div class="card text-white bg-dark" >
                             <div class="d-flex justify-content-center p-2">
                                 <img :src="miembro.image" width="200" height="200" border="0" class="pa-7 secondary rounded-circle d-inline-block">
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title text-center"> {{miembro.rol}}</h5>
-                                <h5 class="card-title"> {{miembro.nombre}}</h5>
-                                <p class="card-text">{{miembro.descripcion}}
+                                <h5 class="card-title text-center"> {{miembro.nombre}}</h5>
+                                <p class="card-text text-center">{{miembro.descripcion}}
                                 </p>
                         </div>
                     </div>
@@ -161,16 +161,16 @@ export default {
               categoria: [{
                 codigo: 1,
                 nombre: 'Coaching Online',
-                descripcion: 'Sesiones Online de Coaching.',
+                descripcion: 'Sesiones online de Coaching.',
                 image: 'https://www.guidocattaneo.com/wp-content/uploads/2019/02/coaching-online.jpeg'
             }, {
                 codigo: 2,
                 nombre: 'Coaching Presencial',
-                descripcion: 'Sesiones Presenciales de Coaching.',
+                descripcion: 'Sesiones presenciales de Coaching.',
                 image:'https://www.emprendiendohistorias.com/wp-content/uploads/2019/05/cursos-de-coaching-online.jpg'
             }, {
                 codigo: 3,
-                nombre: 'Gamificaciòn',
+                nombre: 'Gamificación',
                 descripcion: 'Sesiones interactivas para cambiar la rutina.',
                 image:'https://i.imgur.com/N7NEaBq.jpg'
             }],
@@ -206,7 +206,7 @@ export default {
                 {
                     codigo: 5,
                     nombre: 'Patricia Arango',
-                    descripcion: "administradora inmobiliaria",
+                    descripcion: "Administradora inmobiliaria.",
                     rol: 'Coach',
                     image:"https://i.imgur.com/SaeoRxr.jpg"
                     }]
