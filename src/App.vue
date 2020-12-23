@@ -3,7 +3,7 @@
   <div v-if="estado">
      <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark ">
         <a class="navbar-brand " href="# ">
-            <img src="https://www.flaticon.com/svg/static/icons/svg/1934/1934014.svg" width="30 " height="30
+            <img src="https://www.flaticon.com/svg/static/icons/svg/3534/3534097.svg" width="30 " height="30
     " class="d-inline-block align-top " alt=" " loading="lazy "> SPRINT 5
         </a>
         <div class="collapse navbar-collapse justify-content-end " id="navbarNav ">
@@ -14,94 +14,37 @@
             </ul>
         </div>
     </nav>
-    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="1" class=""></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="2" class=""></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: First slide"><title>Placeholder</title>
-                <rect
-                    width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#555" dy=".3em">First slide</text></svg>
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Second slide"><title>Placeholder</title>
-                <rect
-                    width="100%" height="100%" fill="#666"></rect><text x="50%" y="50%" fill="#444" dy=".3em">Second slide</text></svg>
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Third slide"><title>Placeholder</title>
-                <rect
-                    width="100%" height="100%" fill="#555"></rect><text x="50%" y="50%" fill="#333" dy=".3em">Third slide</text></svg>
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                </div>
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
+    
     <div>
       <home/>
     </div>
-    <footer class="page-footer bg-secondary text-white pt-4">
+    <footer>
 
-        <!-- Footer Text -->
-        <div class="container-fluid text-center text-md-left">
+         <v-footer
+          dark
+          padless
+        >
+          <v-card
+            class="flex"
+            flat
+            tile
+          >
+            <v-card-title class="row justify-content-center mb-5">
+              <strong class="subheading">Get connected with us on social networks!</strong>
+                <div class="d-flex justify-space-around mb-6">             
+                  <a href="https://es-la.facebook.com/" target="_blank"><img src="https://www.flaticon.es/premium-icon/icons/svg/2504/2504903.svg" width="24" height="24"></a>
+                  <a href="https://twitter.com/home" target="_blank"><img src="https://www.flaticon.es/svg/static/icons/svg/145/145812.svg" width="24" height="24"></a>
+                  <a href="https://github.com/dsaavedr/semana-5-45" target="_blank"><img src="https://www.flaticon.es/svg/static/icons/svg/270/270798.svg" width="24" height="24"></a>
+                  <a href="https://www.youtube.com/watch?v=NRhcvlcFmAg" target="_blank"><img src="https://www.flaticon.es/premium-icon/icons/svg/2504/2504965.svg" width="24" height="24"></a>
+                </div> 
+              
+            </v-card-title>
 
-            <!-- Grid row -->
-            <div class="row">
-
-                <!-- Grid column -->
-                <div class="col-md-6 mt-md-0 mt-3">
-
-                    <!-- Content -->
-                    <h5 class="text-uppercase font-weight-bold">Footer text 1</h5>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita sapiente sint, nulla, nihil repudiandae commodi voluptatibus corrupti animi sequi aliquid magnam debitis, maxime quam recusandae harum esse fugiat. Itaque, culpa?</p>
-
-                </div>
-                <!-- Grid column -->
-
-                <hr class="clearfix w-100 d-md-none pb-3">
-
-                <!-- Grid column -->
-                <div class="col-md-6 mb-md-0 mb-3">
-
-                    <!-- Content -->
-                    <h5 class="text-uppercase font-weight-bold">Footer text 2</h5>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio deserunt fuga perferendis modi earum commodi aperiam temporibus quod nulla nesciunt aliquid debitis ullam omnis quos ipsam, aspernatur id excepturi hic.
-                    </p>
-
-                </div>
-                <!-- Grid column -->
-
-            </div>
-            <!-- Grid row -->
-
-        </div>
-        <!-- Footer Text -->
-
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-1 bg-dark">(c) 2020 Copyright: DAD
-        </div>
-        <!-- Copyright -->
+            <v-card-text class="py-2 white--text text-center">
+              {{ new Date().getFullYear() }} — <strong>TeamCoach</strong>
+            </v-card-text>
+          </v-card>
+        </v-footer>
 
     </footer>
   </div>
@@ -232,7 +175,7 @@ export default {
     data () {
       return {
       drawer: false,
-      estado:1
+      estado:1,
       }
     },
 
