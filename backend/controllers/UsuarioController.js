@@ -73,13 +73,11 @@ module.exports = {
         }
     },
     update: async (req, res, next) => {
-        const { id, nombre, password, estado, rol, email } = req.body;
+        const { id, nombre, password, rol, email } = req.body;
 
-        const usuario = await Usuario.findOne({ where: { email } });
-        const passwordDB = usuario.password;
+        const usuario = await Usuario.findOne({ where: { id } });
 
         const valid = await bcrypt.compare(password, usuario.password);
-
         let updatedUser;
 
         if (valid) {
@@ -91,8 +89,8 @@ module.exports = {
                 updatedUser = await Usuario.update(
                     {
                         nombre,
+                        email,
                         password: newPassword,
-                        estado,
                         rol
                     },
                     {
@@ -103,7 +101,7 @@ module.exports = {
                 updatedUser = await Usuario.update(
                     {
                         nombre,
-                        estado,
+                        email,
                         rol
                     },
                     {
@@ -114,7 +112,45 @@ module.exports = {
 
             res.status(200).json(updatedUser);
         } else {
-            res.status(401).send;
+            res.status(401).send("Password invalid");
+        }
+    },
+    activate: async (req, res, next) => {
+        try {
+            const user = await Usuario.update(
+                {
+                    estado: 1
+                },
+                {
+                    where: {
+                        id: req.body.id
+                    }
+                }
+            );
+
+            res.status(200).json(user);
+        } catch (err) {
+            res.status(500).json({ err: "Error del servidor." });
+            next(err);
+        }
+    },
+    deactivate: async (req, res, next) => {
+        try {
+            const user = await Usuario.update(
+                {
+                    estado: 0
+                },
+                {
+                    where: {
+                        id: req.body.id
+                    }
+                }
+            );
+
+            res.status(200).json(user);
+        } catch (err) {
+            res.status(500).json({ err: "Error del servidor." });
+            next(err);
         }
     }
 };
