@@ -45,7 +45,7 @@ export default {
                 return respuesta.data;
             })
             .then(data =>{
-                swal("¡Bienvneido!", "Login exitoso", "success");
+                swal("¡Bienvenido!", "Login exitoso", "success");
                 this.$store.dispatch("guardarToken",data.tokenReturn);
                 this.$router.push({name: 'home'});
             })
